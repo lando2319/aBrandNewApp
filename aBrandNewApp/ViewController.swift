@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if let image = UIImage(named: "theBackground") {
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
     }
 
     override func didReceiveMemoryWarning() {

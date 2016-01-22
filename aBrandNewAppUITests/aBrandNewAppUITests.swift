@@ -29,8 +29,11 @@ class aBrandNewAppUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        for _ in 1...100 {
+            app.toolbars.buttons["Tip2"].tap()
+            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: 1.5))
+        }
     }
     
 }
