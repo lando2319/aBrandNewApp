@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,20 +20,53 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5y-2N-tbQ">
                                 <rect key="frame" x="0.0" y="397" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Tip2" id="lFm-7u-MmM"/>
+                                    <barButtonItem title="Tip2" id="lFm-7u-MmM">
+                                        <connections>
+                                            <action selector="tipTap:" destination="BYZ-38-t0r" id="p7k-zV-jAx"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fng-9T-D7q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="106" id="7be-g5-XMM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QY6-3s-LHm">
+                                <rect key="frame" x="0.0" y="441" width="600" height="159"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="EbD-3k-v4T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="w5y-2N-tbQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hWb-zv-cRZ"/>
-                            <constraint firstAttribute="trailing" secondItem="w5y-2N-tbQ" secondAttribute="trailing" id="ia4-kI-b12"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w5y-2N-tbQ" secondAttribute="bottom" constant="159" id="kRo-gg-NHf"/>
+                            <constraint firstAttribute="trailing" secondItem="w5y-2N-tbQ" secondAttribute="trailing" id="88w-QJ-aOV"/>
+                            <constraint firstItem="fng-9T-D7q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8qd-mT-m2h"/>
+                            <constraint firstItem="w5y-2N-tbQ" firstAttribute="trailing" secondItem="fng-9T-D7q" secondAttribute="trailing" id="CrS-pO-F92"/>
+                            <constraint firstItem="QY6-3s-LHm" firstAttribute="leading" secondItem="w5y-2N-tbQ" secondAttribute="leading" id="Kq9-Lp-0Sa"/>
+                            <constraint firstItem="w5y-2N-tbQ" firstAttribute="leading" secondItem="fng-9T-D7q" secondAttribute="leading" id="eYd-ap-ZHh"/>
+                            <constraint firstItem="QY6-3s-LHm" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="g2e-t8-lNm"/>
+                            <constraint firstItem="QY6-3s-LHm" firstAttribute="trailing" secondItem="w5y-2N-tbQ" secondAttribute="trailing" id="gsf-ot-5Iv"/>
+                            <constraint firstItem="QY6-3s-LHm" firstAttribute="top" secondItem="w5y-2N-tbQ" secondAttribute="bottom" id="lS3-FP-eyN"/>
+                            <constraint firstItem="fng-9T-D7q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lne-Hx-oL8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="theLowerLabel" destination="QY6-3s-LHm" id="C8K-kU-BWj"/>
+                        <outlet property="theMainLabel" destination="fng-9T-D7q" id="km7-rA-06p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="565" y="465"/>
         </scene>
     </scenes>
 </document>

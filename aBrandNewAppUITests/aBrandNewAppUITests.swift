@@ -32,14 +32,75 @@ class aBrandNewAppUITests: XCTestCase {
     
     
     
+    var fieldLost:Bool = false
+    var fieldWon:Bool = false
+    var fieldWonDouble:Bool = false
+    var fieldWonTriple:Bool = false
     
+    var fieldActualConfirmed:Bool = false
+    
+    var diceAre:Int = 2
+    
+    let allRolls:[Int] = [2,3,4,5,6,7,8,9,10,11,12]
     
     func testExample() {
         let app = XCUIApplication()
-        for _ in 1...100 {
+        
+        func tapNow() {
             app.toolbars.buttons["Tip2"].tap()
-            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: 1.5))
+            self.checkTheRoll(app)
+            self.evaluateTheField(app)
+            
+            // comment out to have it run indefinitly
+//            if !fieldActualConfirmed {
+                tapNow()
+//            }
+        }
+        
+        tapNow()
+    }
+    
+    func evaluateTheField(app:XCUIApplication) {
+        
+        func itWon() {
+            XCTAssertNotNil(app.staticTexts["WON"])
+            
+        }
+        
+        func itLost() {
+            XCTAssertNotNil(app.staticTexts["LOST"])
+        }
+        
+        switch self.diceAre {
+        case 2:
+            self.fieldWonDouble = true
+            itWon()
+        case 3, 4, 9, 10, 11:
+            itWon()
+            self.fieldWon = true
+        case 5, 6, 7, 8:
+            itLost()
+            self.fieldLost = true
+        case 12:
+            itWon()
+            self.fieldWonTriple = true
+        default:
+            break
+        }
+        
+        if self.fieldLost && self.fieldWon && self.fieldWonDouble && self.fieldWonTriple {
+            self.fieldActualConfirmed = true
         }
     }
     
+    
+    func checkTheRoll(app:XCUIApplication) {
+        for roll in self.allRolls {
+            if app.staticTexts[String(roll)].exists {
+                self.diceAre = roll
+                break
+                // need to extract die one and die two
+            }
+        }
+    }
 }
